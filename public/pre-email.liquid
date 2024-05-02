@@ -1,4 +1,3 @@
-{% assign order = shop.orders[order.id] %}
 {% assign id = order.id %}
 {% assign email = order.email %}
 {% assign name = order.name %}
@@ -22,17 +21,17 @@
 {% assign transactions = transactions_json | parse_json %}
 
 {% comment %} TODO
-       transaction.payment_details
+     transaction.payment_details
 {% endcomment %}
 
 {% assign tax_price = order.total_tax | times: 100 %}
 
 {% comment %} TODO   
-      tax_lines
-      tax_line.title
-      tax_line.price
-      tax_line.rate
-      tax_line.rate_percentage
+    tax_lines
+    tax_line.title
+    tax_line.price
+    tax_line.rate
+    tax_line.rate_percentage
 {% endcomment %}
 
 {% assign customer = order.customer %}
@@ -46,11 +45,11 @@
 {% assign subtotal_price = order.subtotal_price | times: 100 %}
 
 {% comment %} TODO   
-      discounts 
-      discounts_amount
-      discounts_savings
-      total_price
-      financial_status
+    discounts 
+    discounts_amount
+    discounts_savings
+    total_price
+    financial_status
 {% endcomment %}
 
 {% assign requires_shipping = false %}
@@ -61,8 +60,8 @@
   {% endif %}{% endfor %}
 
 {% comment %} TODO   
-      shipping_method.title
-      shipping_method.price
+    shipping_method.title
+    shipping_method.price
 {% endcomment %}
 
 {% assign shipping_price = order.total_shipping_price_set.shop_money.amount | times: 100 %}
@@ -74,8 +73,8 @@
   {{ order.shipping_address.country }}
 {% endcapture %}
 {% comment %} TODO
-       Not sure how original_line_price is defined
-       line_items
+     Not sure how original_line_price is defined
+     line_items
 {% endcomment %}
 {% capture subtotal_line_items_json %}
 [
@@ -94,24 +93,24 @@
 {% assign subtotal_line_items = subtotal_line_items_json | json_parse %}
 
 {% comment %} TODO   
-      note
-      attributes
-      referring_site
-      landing_site
-      landing_site_ref
-      cancelled
-      cancelled_at
-      cancel_reason
-      "has_high_risks?
-      (deprecated)"
-      unique_gateways
-      location (POS only)
-      "fulfilled_line_items
-      (deprecated)"
-      "unfulfilled_line_items
-      (deprecated)"
-      b2b?
-      customer_order_url
+    note
+    attributes
+    referring_site
+    landing_site
+    landing_site_ref
+    cancelled
+    cancelled_at
+    cancel_reason
+    "has_high_risks?
+    (deprecated)"
+    unique_gateways
+    location (POS only)
+    "fulfilled_line_items
+    (deprecated)"
+    "unfulfilled_line_items
+    (deprecated)"
+    b2b?
+    customer_order_url
 {% endcomment %}
 
 {% assign company = order.company %}

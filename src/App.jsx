@@ -45,7 +45,7 @@ function App() {
 
   // TODO make url relative
   let homepageUrl = packageJson.homepage;
-  fetch("/pre-email.liquid")
+  fetch("/vite/pre-email.liquid")
     .then((r) => r.text())
     .then((text) => {
       mechanicTemplate = text + shopifyTemplate;
